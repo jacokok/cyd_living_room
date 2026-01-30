@@ -1,0 +1,123 @@
+color:
+  - id: room_bg_color
+    hex: "000000"
+  - id: default_button_bg_color
+    hex: "000000"
+  - id: default_button_pressed_bg_color
+    hex: "D3D3D3"
+  - id: btn_1_color
+    hex: FF0000 # Red
+  - id: btn_2_color
+    hex: FF7F00 # Orange
+  - id: btn_3_color
+    hex: FFFF00 # Yellow
+  - id: btn_4_color
+    hex: 00FF00 # Green
+  - id: btn_5_color
+    hex: FF1493 # Pink
+  - id: btn_6_color
+    hex: "800080" # Purple
+  - id: btn_7_color
+    hex: 0000FF # Blue
+  - id: btn_8_color
+    hex: 00FFFF # Aqua
+  - id: btn_9_color
+    hex: "FFFFFF" # White
+  - id: btn_10_color
+    hex: "FFFFFF" # White
+  - id: btn_11_color
+    hex: "FFFFFF" # White
+  - id: btn_12_color
+    hex: "FFFFFF" # White
+
+  - id: burnt_sienna
+    hex: "CC5E14"
+  - id: very_dark_gray
+    hex: "313131"
+  - id: ep_orange
+    hex: "F37320"
+  - id: ep_blue
+    hex: "01B4DE"
+  - id: ep_green
+    hex: "7ACf38"
+
+    # The grays in order of darkness
+  - id: gray50
+    hex: "FAFAFA"
+  - id: gray100
+    hex: "F5F5F5"
+  - id: gray200
+    hex: "EEEEEE"
+  - id: gray300
+    hex: "E0E0E0"
+  - id: gray400
+    hex: "BDBDBD"
+  - id: gray500
+    hex: "9E9E9E"
+  - id: gray600
+    hex: "757575"
+  - id: gray700
+    hex: "616161"
+  - id: gray800
+    hex: "424242"
+  - id: gray900
+    hex: "212121"
+
+  - id: sky_blue
+    hex: 3FA7F3
+  - id: slate_blue_gray
+    hex: 343645
+  - id: steel_blue
+    hex: 606682
+  - id: misty_blue
+    hex: 9BA2BC
+  - id: black
+    hex: 0d0d0d
+  - id: dark_gray
+    hex: 333333
+  - id: gray
+    hex: 666666
+  - id: light_gray
+    hex: 999999
+  - id: white
+    hex: f2f0eb
+  - id: red
+    hex: f34336
+  - id: crimson
+    hex: f5075c
+  - id: light_blue
+    hex: 2fc0ff
+  - id: blue
+    hex: 03a9f4
+  - id: yellow
+    hex: e7c12c
+  - id: light_yellow
+    hex: f0d45c
+  - id: amber
+    hex: f4a900
+  - id: mint
+    hex: 39d19c
+  - id: light_mint
+    hex: 66dcb3
+  - id: light_green
+    hex: 00ff00
+  - id: green
+    hex: 4caf50
+  - id: violet
+    hex: 926BC7
+  - id: dark_blue
+    hex: 4867aa
+  - id: purple
+    hex: 6e41ab
+  - id: deep_purple
+    hex: 2c2338
+  - id: deep_green
+    hex: 253926
+  - id: deep_blue
+    hex: 173847
+  - id: deep_red
+    hex: 472321
+  - id: deep_orange
+    hex: 493416
+  - id: orange
+    hex: ff9800

@@ -1,0 +1,77 @@
+font:
+  # - file: "esphome-modular-lvgl-buttons/assets/fonts/Nunito-SemiBold.ttf"
+  #   id: nunito_20
+  #   size: 20
+  #   bpp: 8
+  - file:
+      type: gfonts
+      family: Roboto
+    id: roboto_20
+    size: 20
+    bpp: 8
+
+  # - file: "gfonts://Material+Symbols+Outlined"
+  - file: "https://github.com/Templarian/MaterialDesign-Webfont/raw/v7.4.47/fonts/materialdesignicons-webfont.ttf"
+    id: mdi_icons_40
+    size: 40
+    bpp: 8
+    glyphs: [
+        $mdi_lightbulb,
+        $mdi_alarm,
+        $mdi_battery,
+        $mdi_battery_90,
+        $mdi_battery_80,
+        $mdi_battery_70,
+        $mdi_battery_60,
+        $mdi_battery_50,
+        $mdi_battery_40,
+        $mdi_battery_30,
+        $mdi_battery_20,
+        $mdi_battery_10,
+        $mdi_battery_outline,
+        $mdi_battery_unknown,
+        $mdi_remote_tv,
+        $mdi_exit_to_app,
+        $mdi_power,
+        $mdi_close,
+        $mdi_arrow_up,
+        $mdi_arrow_left,
+        $mdi_arrow_down,
+        $mdi_arrow_right,
+        $mdi_circle,
+        $mdi_skip_backward,
+        $mdi_skip_forward,
+        $mdi_step_backward,
+        $mdi_play,
+        $mdi_home,
+        $mdi_volume_minus,
+        $mdi_volume_mute,
+        $mdi_volume_plus,
+        $mdi_bed, # mdi-bed - bedroom icon
+        $mdi_brightness_6, # mdi-brightness-6 - brightness slider icon
+        $mdi_bulkhead_light, # mdi-bulkhead-light - bulkhead fixture
+        $mdi_ceiling_fan_light, # mdi-ceiling-fan-light - ceiling fan with light
+        $mdi_ceiling_light, # mdi-ceiling-light - ceiling fixture
+        $mdi_chevron_down, # mdi-chevron-down - close/collapse button
+        $mdi_chevron_up, # mdi-chevron-up - back/expand button
+        $mdi_circle_opacity, # mdi-circle-opacity - saturation slider icon
+        $mdi_coach_lamp, # mdi-coach-lamp - outdoor coach light
+        $mdi_eyedropper, # mdi-eyedropper - spectrum mode toggle
+        $mdi_floor_lamp, # mdi-floor-lamp - floor lamp
+        $mdi_grid, # mdi-grid - grid mode toggle
+        $mdi_information_box, # mdi-information-box - info screen
+        $mdi_lamp, # mdi-lamp - table lamp
+        $mdi_led_strip, # mdi-led-strip - LED strip light
+        $mdi_string_lights, # mdi-string-lights - decorative string lights
+        $mdi_track_light, # mdi-track-light - track lighting
+        $mdi_white_balance_sunny, # mdi-white-balance-sunny - color temp/sun icon
+      ]
+
+  # - file: materialdesignicons-webfont.ttf # Defining Material Design Icons as a font. This
+  #   id: mdi_icons # will allow us to use them as button icons.
+  #   size: 48 # You can get these glyphs from the https://pictogrammers.com/library/mdi/
+  #   glyphs: # where you choose the icon, and then "copy glyph".
+  #     - 󱁑 # mdi-led-strip-variant
+  #     - 󰈐 # mdi-fan
+  #     - 󰏘 # mdi-pallette
+  #     - 󰤝 # mdi-wall-sconce-flat

@@ -1,0 +1,41 @@
+---
+# Switch (or light) toggle button
+# vars:
+#    uid:
+#    row:
+#    column:
+#    row_span:
+#    column_span:
+#    text:
+#    icon:
+#    entity_id:
+#    command:
+
+# This section add a button to LVGL page main_page
+lvgl:
+  pages:
+    - id: !extend tv_page
+      widgets:
+        - container:
+            id: ${uid}
+            grid_cell_row_pos: ${row}
+            grid_cell_column_pos: ${column}
+            grid_cell_row_span: ${row_span | default(1)}
+            grid_cell_column_span: ${column_span | default(1)}
+            grid_cell_x_align: stretch
+            grid_cell_y_align: stretch
+            widgets:
+              - button:
+                  id: button_${uid}
+                  widgets:
+                    - label:
+                        text_font: $icon_font
+                        align: center
+                        id: icon_${uid}
+                        text: ${icon}
+                  on_short_click:
+                    - homeassistant.action:
+                        action: remote.send_command
+                        data:
+                          entity_id: ${entity_id}
+                          command: ${command}

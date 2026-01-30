@@ -1,0 +1,20 @@
+---
+lvgl:
+  pages:
+    - id: loading_page
+      layout: 1x1
+      styles: page_style
+      widgets:
+        - spinner:
+            id: spinner
+            align: center
+            width: 60
+            height: 60
+            spin_time: 1000ms
+            arc_length: 65deg
+            arc_width: 10
+            arc_color: 0x00573A
+            arc_rounded: true
+            indicator:
+              arc_color: 0x2CEDAC
+              arc_width: 10

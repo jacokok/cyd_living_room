@@ -1,0 +1,136 @@
+---
+# Switch (or light) toggle button
+# vars:
+#    uid:
+#    row:
+#    column:
+#    row_span:
+#    column_span:
+#    text:
+#    icon:
+#    entity_id:
+
+# This section add a button to LVGL page main_page
+lvgl:
+  pages:
+    - id: !extend main_page
+      widgets:
+        - container:
+            id: ${uid}
+            grid_cell_row_pos: ${row}
+            grid_cell_column_pos: ${column}
+            grid_cell_row_span: ${row_span | default(1)}
+            grid_cell_column_span: ${column_span | default(1)}
+            grid_cell_x_align: stretch
+            grid_cell_y_align: stretch
+            # outline_width: 1
+            # outline_color: red
+            widgets:
+              - button:
+                  id: button_${uid}
+                  widgets:
+                    - label:
+                        text_font: $icon_font
+                        align: top_left
+                        id: icon_${uid}
+                        text: ${icon}
+                    - label:
+                        align: bottom_left
+                        id: label_${uid}
+                        text: ${text}
+                  # on_short_click:
+                  #   - homeassistant.action:
+                  #       action: homeassistant.toggle
+                  #       data:
+                  #         entity_id: ${entity_id}
+
+# This section will update button state and relay states from Home Assistant
+sensor:
+  - id: widget_sensor_${uid}
+    platform: homeassistant
+    entity_id: ${entity_id}
+    on_value:
+      - lvgl.label.update:
+          id: label_${uid}
+          text:
+            format: "%.0f %%"
+            args: [x]
+      - lvgl.label.update:
+          id: icon_${uid}
+          text: !lambda |-
+            static char buf[10];
+            std::string icon;
+            if (x == 100.0) {
+                icon = "\U000F0079"; // mdi-battery (full)
+            } else if (x > 90) {
+                icon = "\U000F0082"; // mdi-battery-90
+            } else if (x > 80) {
+                icon = "\U000F0081"; // mdi-battery-80
+            } else if (x > 70) {
+                icon = "\U000F0080"; // mdi-battery-70
+            } else if (x > 60) {
+                icon = "\U000F007F"; // mdi-battery-60
+            } else if (x > 50) {
+                icon = "\U000F007E"; // mdi-battery-50
+            } else if (x > 40) {
+                icon = "\U000F007D"; // mdi-battery-40
+            } else if (x > 30) {
+                icon = "\U000F007C"; // mdi-battery-30
+            } else if (x > 20) {
+                icon = "\U000F007B"; // mdi-battery-20
+            } else if (x > 10) {
+                icon = "\U000F007A"; // mdi-battery-10
+            } else if (x > 0) {
+                icon = "\U000F008E"; // mdi-battery-outline
+            } else {
+                icon = "\U000F0091"; // mdi-battery-unknown
+            }
+            snprintf(buf, sizeof(buf), "%s", icon.c_str());
+            return buf;
+    on_value_range:
+      - above: 89
+        then:
+          - lvgl.widget.update:
+              id: button_${uid}
+              bg_color: deep_green
+          - lvgl.widget.update:
+              id: icon_${uid}
+              text_color: green
+          - lvgl.widget.update:
+              id: label_${uid}
+              text_color: green
+      - below: 90
+        above: 74
+        then:
+          - lvgl.widget.update:
+              id: button_${uid}
+              bg_color: deep_blue
+          - lvgl.widget.update:
+              id: icon_${uid}
+              text_color: blue
+          - lvgl.widget.update:
+              id: label_${uid}
+              text_color: blue
+      - below: 75
+        above: 49
+        then:
+          - lvgl.widget.update:
+              id: button_${uid}
+              bg_color: deep_orange
+          - lvgl.widget.update:
+              id: icon_${uid}
+              text_color: orange
+          - lvgl.widget.update:
+              id: label_${uid}
+              text_color: orange
+      - below: 50
+        then:
+          - lvgl.widget.update:
+              id: button_${uid}
+              bg_color: deep_red
+          - lvgl.widget.update:
+              id: icon_${uid}
+              text_color: red
+          - lvgl.widget.update:
+              id: label_${uid}
+              text_color: red

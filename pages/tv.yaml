@@ -1,0 +1,181 @@
+---
+substitutions:
+  tv_living_room: remote.smart_tv_pro
+
+lvgl:
+  pages:
+    - id: tv_page
+      layout: 5x3
+      styles: page_style
+      # widgets:
+      #   - button:
+      #       radius: 15
+      #       widgets:
+      #         - label:
+      #             text_color: white
+      #             align: center
+      #             text: "Exit"
+      #       on_press:
+      #         - lvgl.page.show: main_page
+      # - button:
+      #     radius: 15
+      #     widgets:
+      #       - label:
+      #           text_color: white
+      #           align: center
+      #           text: "Up"
+      #     on_press:
+      #       - homeassistant.action:
+      #           action: remote.send_command
+      #           data:
+      #             entity_id: ${tv_living_room}
+      #             command: VOLUME_DOWN
+
+packages:
+  power: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: power
+      row: 0
+      column: 0
+      icon: $mdi_power
+      entity_id: ${tv_living_room}
+      command: POWER
+
+  dpad_up: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: dpad_up
+      row: 0
+      column: 1
+      icon: $mdi_arrow_up
+      entity_id: ${tv_living_room}
+      command: DPAD_UP
+
+  close: !include
+    file: ../buttons/tv_close_button.yaml
+    vars:
+      uid: tv1_close
+      row: 0
+      column: 2
+      icon: $mdi_close
+
+  dpad_left: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: dpad_left
+      row: 1
+      column: 0
+      icon: $mdi_arrow_left
+      entity_id: ${tv_living_room}
+      command: DPAD_LEFT
+
+  dpad_center: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: dpad_center
+      row: 1
+      column: 1
+      icon: $mdi_circle
+      entity_id: ${tv_living_room}
+      command: DPAD_CENTER
+
+  dpad_right: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: dpad_right
+      row: 1
+      column: 2
+      icon: $mdi_arrow_right
+      entity_id: ${tv_living_room}
+      command: DPAD_RIGHT
+
+  back: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: back
+      row: 2
+      column: 0
+      icon: $mdi_step_backward
+      entity_id: ${tv_living_room}
+      command: BACK
+
+  dpad_down: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: dpad_down
+      row: 2
+      column: 1
+      icon: $mdi_arrow_down
+      entity_id: ${tv_living_room}
+      command: DPAD_DOWN
+
+  home: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: home
+      row: 2
+      column: 2
+      icon: $mdi_home
+      entity_id: ${tv_living_room}
+      command: HOME
+
+  media_previous: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: media_previous
+      row: 3
+      column: 0
+      icon: $mdi_skip_backward
+      entity_id: ${tv_living_room}
+      command: MEDIA_PREVIOUS
+
+  media_play: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: media_play
+      row: 3
+      column: 1
+      icon: $mdi_play
+      entity_id: ${tv_living_room}
+      command: MEDIA_PLAY_PAUSE
+
+  media_next: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: media_next
+      row: 3
+      column: 2
+      icon: $mdi_skip_forward
+      entity_id: ${tv_living_room}
+      command: MEDIA_NEXT
+
+  volume_mute: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: volume_mute
+      row: 4
+      column: 0
+      icon: $mdi_volume_mute
+      entity_id: ${tv_living_room}
+      command: MUTE
+
+  volume_down: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: volume_down
+      row: 4
+      column: 1
+      icon: $mdi_volume_minus
+      entity_id: ${tv_living_room}
+      command: VOLUME_DOWN
+
+  volume_up: !include
+    file: ../buttons/tv_button.yaml
+    vars:
+      uid: volume_up
+      row: 4
+      column: 2
+      icon: $mdi_volume_plus
+      entity_id: ${tv_living_room}
+      command: VOLUME_UP

@@ -1,0 +1,47 @@
+lvgl:
+  page_wrap: true
+  pages:
+    - id: main_page
+      layout: 3x2
+      styles: page_style
+
+packages:
+  button_1: !include
+    file: ../buttons/switch_button.yaml
+    vars:
+      uid: button_1
+      row: 0
+      column: 0
+      text: Stoep
+      column_span: 2
+      icon: $mdi_lightbulb
+      entity_id: switch.officelight_stoeplight_relay
+  button_2: !include
+    file: ../buttons/alarm_button.yaml
+    vars:
+      uid: button_2
+      row: 1
+      column: 0
+      column_span: 2
+      text: Alarm
+      icon: $mdi_alarm
+      entity_id: alarm_control_panel.alarm
+  button_3: !include
+    file: ../buttons/battery_button.yaml
+    vars:
+      uid: button_3
+      row: 2
+      column: 0
+      text: Battery
+      icon: $mdi_lightbulb
+      entity_id: sensor.battery_state_of_charge
+  button_4: !include
+    file: ../buttons/tv_page_button.yaml
+    vars:
+      uid: button_4
+      row: 2
+      column: 1
+      text: TV
+      icon: $mdi_remote_tv
+      click_page: tv_page
+      entity_id: remote.smart_tv_pro
