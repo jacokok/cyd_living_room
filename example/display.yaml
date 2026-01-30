@@ -28,3 +28,4 @@ packages:
   loading_page: !include cyd_living_room/pages/loading.yaml
   main_page: !include cyd_living_room/pages/main.yaml
   tv_page: !include cyd_living_room/pages/tv.yaml
+  solar_page: !include cyd_living_room/pages/solar.yaml
