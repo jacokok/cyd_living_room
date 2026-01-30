@@ -1,0 +1,66 @@
+---
+substitutions:
+  tv_living_room: remote.smart_tv_pro
+
+lvgl:
+  pages:
+    - id: solar_page
+      layout: 4x2
+      styles: page_style
+
+packages:
+  grid: !include
+    file: ../buttons/solar_grid_button.yaml
+    vars:
+      uid: grid
+      row: 0
+      column: 0
+      text: Grid
+      icon: $mdi_power_plug
+      entity_id: binary_sensor.grid_on
+
+  close: !include
+    file: ../buttons/solar_page_button.yaml
+    vars:
+      uid: close_solar
+      row: 0
+      column: 1
+      text: Close
+      icon: $mdi_close
+      click_page: main_page
+
+  load: !include
+    file: ../components/bar.yaml
+    vars:
+      uid: load
+      row: 1
+      column: 0
+      column_span: 2
+      icon: $mdi_lightning_bolt
+      entity_id: sensor.load_power
+      min_value: 0
+      max_value: 6000
+
+  solar: !include
+    file: ../components/bar.yaml
+    vars:
+      uid: solar
+      row: 2
+      column: 0
+      column_span: 2
+      icon: $mdi_solar_power
+      entity_id: sensor.pv_power
+      min_value: 0
+      max_value: 6000
+
+  battery: !include
+    file: ../components/bar.yaml
+    vars:
+      uid: solar_battery
+      row: 3
+      column: 0
+      column_span: 2
+      icon: $mdi_battery
+      entity_id: sensor.battery_state_of_charge
+      min_value: 0
+      max_value: 100

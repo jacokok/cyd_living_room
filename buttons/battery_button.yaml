@@ -38,11 +38,9 @@ lvgl:
                         align: bottom_left
                         id: label_${uid}
                         text: ${text}
-                  # on_short_click:
-                  #   - homeassistant.action:
-                  #       action: homeassistant.toggle
-                  #       data:
-                  #         entity_id: ${entity_id}
+                  on_short_click:
+                    then:
+                      lvgl.page.show: ${click_page | default(main_page)}
 
 # This section will update button state and relay states from Home Assistant
 sensor:

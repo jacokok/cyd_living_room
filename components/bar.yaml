@@ -1,0 +1,62 @@
+---
+# Switch (or light) toggle button
+# vars:
+#    uid:
+#    row:
+#    column:
+#    row_span:
+#    column_span:
+#    text:
+#    icon:
+#    entity_id:
+
+# This section add a button to LVGL page main_page
+lvgl:
+  pages:
+    - id: !extend solar_page
+      widgets:
+        - container:
+            id: ${uid}
+            grid_cell_row_pos: ${row}
+            grid_cell_column_pos: ${column}
+            grid_cell_row_span: ${row_span | default(1)}
+            grid_cell_column_span: ${column_span | default(1)}
+            grid_cell_x_align: stretch
+            grid_cell_y_align: stretch
+            widgets:
+              - button:
+                  id: button_${uid}
+                  widgets:
+                    - label:
+                        text_font: $icon_font
+                        align: top_left
+                        id: icon_${uid}
+                        text: ${icon}
+                    - label:
+                        align: top_right
+                        id: value_${uid}
+                    - bar:
+                        id: bar_${uid}
+                        min_value: ${min_value | default(0)}
+                        max_value: ${max_value | default(100)}
+                        width: 100%
+                        height: 10
+                        align: bottom_left
+                        indicator:
+                          bg_color: blue
+                        bg_color: deep_blue
+
+sensor:
+  - id: widget_sensor_${uid}
+    platform: homeassistant
+    entity_id: ${entity_id}
+    on_value:
+      - lvgl.bar.update:
+          id: bar_${uid} # Ensure this ID matches your bar's defined ID
+          value: !lambda "return x;"
+          animated: true # Optional: enables smooth transition
+      - lvgl.label.update:
+          id: value_${uid}
+          text:
+            format: "%.0f %"
+            args: [x]

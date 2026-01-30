@@ -47,6 +47,9 @@ font:
         $mdi_volume_minus,
         $mdi_volume_mute,
         $mdi_volume_plus,
+        $mdi_lightning_bolt,
+        $mdi_solar_power,
+        $mdi_power_plug,
         $mdi_bed, # mdi-bed - bedroom icon
         $mdi_brightness_6, # mdi-brightness-6 - brightness slider icon
         $mdi_bulkhead_light, # mdi-bulkhead-light - bulkhead fixture
