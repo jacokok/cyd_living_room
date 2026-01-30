@@ -5,12 +5,22 @@ esphome:
 logger:
 
 api:
+  id: ha_api
   on_client_connected:
-    - logger.log: "API client connected!"
-    - lvgl.page.show: main_page
+    - if:
+        condition:
+          lambda: 'return client_info.find("Home Assistant") != std::string::npos;'
+        then:
+          - logger.log: "API client connected!"
+          - lvgl.page.show: main_page
+
   on_client_disconnected:
-    - logger.log: "API client disconnected!"
-    - lvgl.page.show: loading_page
+    - if:
+        condition:
+          lambda: "return !id(ha_api).is_connected(true);"
+        then:
+          - logger.log: "API client disconnected!"
+          - lvgl.page.show: loading_page
 
 ota:
   platform: esphome
