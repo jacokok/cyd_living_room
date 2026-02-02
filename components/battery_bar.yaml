@@ -96,8 +96,10 @@ sensor:
       - above: 89
         then:
           - lvgl.widget.update:
-              id: button_${uid}
+              id: bar_${uid}
               bg_color: deep_green
+              indicator:
+                bg_color: green
           - lvgl.widget.update:
               id: icon_${uid}
               text_color: green
@@ -108,8 +110,10 @@ sensor:
         above: 74
         then:
           - lvgl.widget.update:
-              id: button_${uid}
+              id: bar_${uid}
               bg_color: deep_blue
+              indicator:
+                bg_color: blue
           - lvgl.widget.update:
               id: icon_${uid}
               text_color: blue
@@ -133,8 +137,10 @@ sensor:
       - below: 50
         then:
           - lvgl.widget.update:
-              id: button_${uid}
+              id: bar_${uid}
               bg_color: deep_red
+              indicator:
+                bg_color: red
           - lvgl.widget.update:
               id: icon_${uid}
               text_color: red
