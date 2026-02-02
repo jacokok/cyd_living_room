@@ -33,7 +33,7 @@ packages:
       row: 2
       column: 0
       text: Battery
-      icon: $mdi-battery
+      icon: $mdi_battery
       entity_id: sensor.battery_state_of_charge
       click_page: solar_page
   button_4: !include

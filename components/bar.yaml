@@ -9,6 +9,8 @@
 #    text:
 #    icon:
 #    entity_id:
+# bar_color
+# bar_bg_color
 
 # This section add a button to LVGL page main_page
 lvgl:
@@ -32,9 +34,11 @@ lvgl:
                         align: top_left
                         id: icon_${uid}
                         text: ${icon}
+                        text_color: ${bar_color}
                     - label:
                         align: top_right
                         id: value_${uid}
+                        text_color: ${bar_color}
                     - bar:
                         id: bar_${uid}
                         min_value: ${min_value | default(0)}
@@ -43,8 +47,8 @@ lvgl:
                         height: 10
                         align: bottom_left
                         indicator:
-                          bg_color: blue
-                        bg_color: deep_blue
+                          bg_color: ${bar_color}
+                        bg_color: ${bar_bg_color}
 
 sensor:
   - id: widget_sensor_${uid}

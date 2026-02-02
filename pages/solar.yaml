@@ -38,6 +38,8 @@ packages:
       column_span: 2
       icon: $mdi_lightning_bolt
       entity_id: sensor.load_power
+      bar_color: red
+      bar_bg_color: deep_red
       min_value: 0
       max_value: 6000
 
@@ -50,11 +52,13 @@ packages:
       column_span: 2
       icon: $mdi_solar_power
       entity_id: sensor.pv_power
+      bar_color: purple
+      bar_bg_color: deep_purple
       min_value: 0
       max_value: 6000
 
   battery: !include
-    file: ../components/bar.yaml
+    file: ../components/battery_bar.yaml
     vars:
       uid: solar_battery
       row: 3
