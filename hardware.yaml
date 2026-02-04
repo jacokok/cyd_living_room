@@ -18,10 +18,17 @@ preferences:
 #     pin: 34
 #     name: "Brightness"
 #     update_interval: 60s
+sensor:
+  - platform: adc
+    pin: 34
+    name: "Front Light Sensor"
+    attenuation: 11db
+    update_interval: 10s
+    filters:
+      - multiply: 3.3 # Convert raw voltage roughly to 0-3.3v range
+    unit_of_measurement: "V"
 
-#-------------------------------------------
 # Backlight
-#-------------------------------------------
 output:
   - platform: ledc
     pin: 21
@@ -80,33 +87,12 @@ touchscreen:
       mirror_x: true
     on_touch:
       then:
-        # - if:
-        #     condition: lvgl.is_paused
-        #     then:
         - light.turn_on:
             id: display_backlight
     on_release:
       then:
         - lvgl.resume
         - lvgl.widget.redraw
-
-# display:
-#   - id: my_display
-#     platform: ili9xxx
-#     model: ILI9341
-#     spi_id: tft
-#     cs_pin: GPIO15
-#     dc_pin: GPIO2
-#     invert_colors: true # original used to be false
-#     color_palette: 8BIT # added this line
-#     update_interval: never
-#     auto_clear_enabled: false
-#     # transform: # added this line
-#     #   swap_xy: true
-#     #   mirror_x: false
-#     dimensions: #added this line
-#       height: 320
-#       width: 240
 
 display:
   - id: my_display
@@ -123,9 +109,6 @@ display:
     invert_colors: false
     update_interval: never
     auto_clear_enabled: false
-    # transform:
-    #   swap_xy: true
-    #   mirror_x: true
     dimensions:
       width: ${width}
       height: ${height}
