@@ -22,6 +22,19 @@ api:
           - logger.log: "API client disconnected!"
           - lvgl.page.show: loading_page
 
+interval:
+  - interval: 60s
+    then:
+      - if:
+          condition:
+            api.connected:
+          then:
+            - logger.log: "API connected, ensuring main_page is shown"
+            - lvgl.page.show: main_page
+          else:
+            - logger.log: "API disconnected, ensuring loading_page is shown"
+            - lvgl.page.show: loading_page
+
 ota:
   platform: esphome
 
